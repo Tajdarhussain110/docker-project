@@ -3,12 +3,13 @@ pipeline {
  stages {
      stage ('clone') {
          steps {
-             git branch:"master",url:"https://github.com/Tajdarhussain110/docker-project.git"
+             git url:'https://github.com/Tajdarhussain110/docker-project.git',
+             branch :'master'
          }
      }
      stage ('build') {
         steps {
-            sh "docker info"
+            sh 'docker info'
         }
      }
    }
