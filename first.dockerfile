@@ -9,17 +9,7 @@ pipeline {
      }
      stage ('build') {
         steps {
-            sh 'docker info'
+            sh 'docker image build'
         }
      }
-      stage ('artifactory') {
-             steps {
-             sh "docker pull hello-world",
-             sh "docker tag hello-world:latest <artifactoryDockerRegistry>/hello-world:latest",
-             sh "docker login <artifactoryDockerRegistry>",
-             sh "docker push <artifactoryDockerRegistry>/hello-world:latest"
-            }
-          }
-        }
-   }
- 
+      
